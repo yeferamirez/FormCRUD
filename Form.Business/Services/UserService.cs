@@ -100,6 +100,8 @@ namespace Form.Business.Services
                 if (userResponse == null)
                     return new UserResponse(ResponseConstants.FAILED_PROCESS, ExceptionConstants.USER_NOT_EXIST);
 
+                userRequest.CreationDate = userResponse.CreationDate;
+                userRequest.ModificationDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 var userUpdated = await _userRepository.UpdateUser(userResponse, userRequest);
                 return new UserResponse(ResponseConstants.SUCCESS_PROCESS, userUpdated);
             }

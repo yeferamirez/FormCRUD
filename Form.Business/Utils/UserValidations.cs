@@ -40,7 +40,8 @@ namespace Form.Business.Utils
         public void ValidateDate()
         {
             RuleFor(user => user.BirthDate)
-            .NotEmpty().WithMessage("La fecha de nacimiento es obligatorio.");
+            .NotEmpty().WithMessage("La fecha de nacimiento es obligatorio.")
+            .Must(ValidationRequestUtil.IsValidDate).WithMessage("El formato de la fecha debe ser 'yyyy-MM-dd'.");
         }
 
         private void ValidateSalary()

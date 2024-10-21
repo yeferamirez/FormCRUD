@@ -7,8 +7,9 @@ namespace Form.Infrastructure.Utils
     {
         public static User BuildUser(User userRequest)
         {
-            userRequest.CreationDate = DateTime.Now;
-            userRequest.ModificationDate = DateTime.Now;
+            userRequest.BirthDate = DateTime.Parse(userRequest.BirthDate).ToString("yyyy-MM-dd");
+            userRequest.CreationDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            userRequest.ModificationDate = userRequest.CreationDate;
             return userRequest;
         }
 
