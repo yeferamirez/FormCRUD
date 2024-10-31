@@ -105,6 +105,7 @@ namespace Form.Controllers
             {
                 var userValidator = new UserValidations();
                 var resultValidation = userValidator.Validate(user);
+
                 if (!resultValidation.IsValid)
                 {
                     var errores = resultValidation.Errors.Select(v => v.ErrorMessage).ToList();
